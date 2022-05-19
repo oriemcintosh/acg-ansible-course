@@ -2,9 +2,11 @@ Parameters:
   NameOfService:
     Description: The tag name associated with this EC2 instances.
     Type: String
+    Default: acg-ansible
   KeyName:
     Description: Name of an existing EC2 KeyPair to enable SSH access into the server
     Type: AWS::EC2::KeyPair::KeyName
+    Default: acg-cloud-server-key
 Mappings:
   RegionMap:
     us-east-1:
@@ -67,11 +69,11 @@ Resources:
       - IpProtocol: tcp
         FromPort: 22
         ToPort: 22
-        CidrIp: 0.0.0.0/0
+        CidrIp: 18.222.112.236/32
       - IpProtocol: tcp
         FromPort: 80
         ToPort: 80
-        CidrIp: 0.0.0.0/0
+        CidrIp: 18.222.112.236/32
       Tags:
         - Key: Name
           Value: acg-ansible-course-sg
